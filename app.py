@@ -47,7 +47,7 @@ def main():
     # upload filep
     pdf = st.file_uploader("Upload PDF Here", type="pdf")
     
-    # extract the text
+    # extract text
     if pdf is not None:
       pdf_reader = PdfReader(pdf)
       text = ""
@@ -70,6 +70,7 @@ def main():
       # show user input
       user_question = st.text_input("Ask a question about your PDF:")
       if user_question:
+        
         docs = knowledge_base.similarity_search(user_question)
         
         llm = OpenAI()
